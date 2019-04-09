@@ -19,7 +19,12 @@ description
     >
 
 definition
-    OBSERVATION_SET[at0000] occurrences matches {1..1} matches {*}  -- Datastream
+    OBSERVATION_SET[at0000] occurrences matches {1..1} matches {  -- Datastream
+        details existence matches {1..1} matches {
+            DETAILS_COMPOSITE[at0001] occurrences matches {1..1} matches {*}  -- Properties
+        }
+        observation existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {*}
+    }
 
 ontology
     term_definitions = <
@@ -28,6 +33,10 @@ ontology
                 ["at0000"] = <
                     text = <"Datastream">
                     description = <"Datastream">
+                >
+                ["at0001"] = <
+                    text = <"Properties">
+                    description = <"">
                 >
             >
         >
