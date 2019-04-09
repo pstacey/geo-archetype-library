@@ -1,0 +1,34 @@
+archetype (adl_version=1.4)
+    TPOT-OM-DETAILS_COMPOSITE.shape.v1
+
+concept
+    [at0000]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-07-24">
+    >
+    lifecycle_state = <"Draft">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+
+definition
+    DETAILS_COMPOSITE[at0000] occurrences matches {1..1} matches {*}  -- shape
+
+ontology
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000"] = <
+                    text = <"shape">
+                    description = <"shape">
+                >
+            >
+        >
+    >

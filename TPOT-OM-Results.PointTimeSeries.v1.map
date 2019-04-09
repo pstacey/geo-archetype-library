@@ -1,0 +1,21 @@
+archetype
+    TPOT-OM-Results.PointTimeSeries.v1
+
+description
+    original_author = <
+        ["date"] = <"2018-07-24">
+    >
+    lifecycle_state = <"Draft">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+
+objectBuilder
+    object_builder_definition = <"<?xml version='1.0' encoding='UTF-8'?><objectBuilder hasBagSemantics='false'><sourcePaths><sourcePath>/source[anySource]/type[XML]/document[anyDocument]/element[linkEHRvirtualIDPatient]</sourcePath></sourcePaths></objectBuilder>">
+mapping
+    map_definitions = <
+    >
+
+
