@@ -1,0 +1,25 @@
+archetype
+    TPOT-OM-GeoData_COMPOSITION.platform-oceanSITES-moorings-CEFAS.v1
+
+description
+    original_author = <
+        ["name"] = <"unknown">
+        ["organisation"] = <"unknown">
+    >
+    lifecycle_state = <"Draft">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+    other_details = <
+        ["lastExportDate"] = <"11/20/2020 11:32:57">
+    >
+
+objectBuilder
+    object_builder_definition = <"<?xml version='1.0' encoding='UTF-8'?><objectBuilder hasBagSemantics='false'><sourcePaths><sourcePath>/source[anySource]/type[XML]/document[anyDocument]/element[linkEHRvirtualIDPatient]</sourcePath></sourcePaths></objectBuilder>">
+mapping
+    map_definitions = <
+    >
+
+

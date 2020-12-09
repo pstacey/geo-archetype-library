@@ -1,0 +1,124 @@
+archetype (adl_version=1.4)
+    TPOT-OM-OBSERVATION_SET.netCDF-oceanSITES-oceanotron.v1
+specialize
+    TPOT-OM-OBSERVATION_SET.netCDF-oceanSITES.v1
+
+concept
+    [at0000.1.1]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["name"] = <"unknown">
+        ["organisation"] = <"unknown">
+    >
+    lifecycle_state = <"Draft">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+
+definition
+    OBSERVATION_SET[at0000.1.1] occurrences matches {1..1} matches {  -- netCDF - Specialization: oceanSITES - Specialization: oceanotron
+        observation existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+            OBSERVATION_SET[at0002.51.12] occurrences matches {0..*} matches {  -- **data part
+                observation existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                    OBSERVATION_SET[at0.0.13] occurrences matches {0..*} matches {  -- CSML
+                        observation existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                            OBSERVATION[at0.0.14] occurrences matches {0..*} matches {  -- 
+                                featureofinterest existence matches {1..1} matches {
+                                    FeatureOfInterest[at0.0.15] occurrences matches {1..1} matches {  -- featureType
+                                        details existence matches {1..1} matches {
+                                            DETAILS_COMPOSITE[at0.0.19] occurrences matches {0..1} matches {  -- attributes
+                                                element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                                                    DETAILS_ELEMENT[at0.0.20] occurrences matches {1..1} matches {  -- featureTypeID
+                                                        data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                                                            OM_STRING[at0.0.22] occurrences matches {0..*} matches {  -- 
+                                                                value existence matches {1..1} matches {"TrajectoryFeature","PointFeature","ProfileFeature","GridFeature","PointSeriesFeature","ProfileSeriesFeature","GridSeriesFeature"}
+                                                            }
+                                                        }
+                                                    }
+                                                    DETAILS_ELEMENT[at0.0.21] occurrences matches {1..1} matches {  -- refUnificationXrefID
+                                                        data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                                                            OM_STRING[at0.0.23] occurrences matches {0..*} matches {  -- 
+                                                                value existence matches {1..1} matches {/.*/}
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                obsproperty existence matches {1..1} matches {
+                                    ObservedProperty[at0.0.24] occurrences matches {1..1} matches {  -- 
+                                        details existence matches {1..1} matches {*}
+                                    }
+                                }
+                                om_process existence matches {1..1} matches {*}
+                                resultTime existence matches {1..1} matches {*}
+                                results_cluster existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {*}
+                                details existence matches {0..1} matches {*}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+ontology
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000.1.1"] = <
+                    text = <"netCDF - Specialization: oceanSITES - Specialization: oceanotron">
+                    description = <"netCDF - Specialization: oceanSITES - Specialization: oceanotron">
+                >
+                ["at0002.51.12"] = <
+                    text = <"**data part">
+                    description = <"**comprising fixed-size data, containing the data for variables that don't have an unlimited dimension; and variable-size data, containing the data for variables that have an unlimited dimension. ref https://www.unidata.ucar.edu/software/netcdf/docs/file_structure_and_performance.html">
+                >
+                ["at0.0.13"] = <
+                    text = <"CSML">
+                    description = <"The oceanotron shared data model is implemented on the basis of the CSML V2 work. It aims at complying with the
+O&M and Inspire data models.">
+                >
+                ["at0.0.14"] = <
+                    text = <"">
+                    description = <"">
+                >
+                ["at0.0.15"] = <
+                    text = <"featureType">
+                    description = <"http://www.csml.org/service/CSML3.0/element_featureType.html">
+                >
+                ["at0.0.19"] = <
+                    text = <"attributes">
+                    description = <"">
+                >
+                ["at0.0.20"] = <
+                    text = <"featureTypeID">
+                    description = <"http://www.csml.org/service/CSML3.0/element_featureType.html#attribute_featureTypeID">
+                >
+                ["at0.0.21"] = <
+                    text = <"refUnificationXrefID">
+                    description = <"http://www.csml.org/service/CSML3.0/element_featureType.html#attribute_refUnificationXrefID">
+                >
+                ["at0.0.22"] = <
+                    text = <"">
+                    description = <"">
+                >
+                ["at0.0.23"] = <
+                    text = <"">
+                    description = <"">
+                >
+                ["at0.0.24"] = <
+                    text = <"">
+                    description = <"">
+                >
+            >
+        >
+    >

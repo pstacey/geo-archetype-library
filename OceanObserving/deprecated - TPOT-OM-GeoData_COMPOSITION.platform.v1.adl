@@ -1,0 +1,51 @@
+archetype (adl_version=1.4)
+    TPOT-OM-GeoData_COMPOSITION.platform.v1
+
+concept
+    [at0000]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-07-24">
+    >
+    lifecycle_state = <"Draft">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+
+definition
+    GeoData_COMPOSITION[at0000] occurrences matches {1..1} matches {  -- platform
+        details existence matches {1..1} matches {
+            DETAILS_COMPOSITE[at0001] occurrences matches {1..1} matches {  -- Slot to DETAILS_ELEMENT
+                element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                    DETAILS_ELEMENT[at0002] occurrences matches {1..*} matches {*}  -- 
+                }
+            }
+        }
+    }
+
+ontology
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000"] = <
+                    text = <"platform">
+                    description = <"platform">
+                >
+                ["at0001"] = <
+                    text = <"Slot to DETAILS_COMPOSITE">
+                    description = <"">
+                    comment = <"This node was originaly a slot node, it was solved to {TPOT-OM-DETAILS_COMPOSITE.platform_details.v1}">
+                >
+                ["at0002"] = <
+                    text = <"Slot to DETAILS_ELEMENT">
+                    description = <"">
+                >
+            >
+        >
+    >

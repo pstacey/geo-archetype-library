@@ -1,0 +1,122 @@
+<RMDocumentation model="OM" organization="TPOT" version="1" defaultLanguage="EN-US" modelClass="" xsltPath="" nodeIdPath="" targetNS="http://tpot.dit.ie" elementsAsTypes="false">
+   <class name="OBSERVATION_SET" parent="ABSTRACT_OBS">
+      <attributes>
+         <attribute name="observation" attributeChildren="OBSERVATION_SET,ABSTRACT_OBS,OBSERVATION">
+         </attribute>
+         <attribute name="details" attributeChildren="DETAILS_COMPOSITE">
+         </attribute>
+         <attribute name="relationship" attributeChildren="FeatureOfInterest">
+         </attribute>
+      </attributes>
+   </class>
+   <class name="FeatureOfInterest">
+      <attributes>
+         <attribute name="details" attributeChildren="DETAILS_COMPOSITE,DETAILS_ELEMENT">
+         </attribute>
+      </attributes>
+   </class>
+   <class name="GeoData_COMPOSITION" parent="IDENTITY_ABSTRACT">
+      <attributes>
+         <attribute name="observation_Set_" attributeChildren="OBSERVATION_SET,ABSTRACT_OBS,OBSERVATION">
+         </attribute>
+         <attribute name="name" attributeChildren="String">
+         </attribute>
+         <attribute name="archetype_id" attributeChildren="String">
+         </attribute>
+         <attribute name="details" attributeChildren="DETAILS_COMPOSITE">
+         </attribute>
+      </attributes>
+   </class>
+   <class name="Results" parent="ANY_TYPE">
+      <attributes>
+         <attribute name="result_element" attributeChildren="Result,Results">
+         </attribute>
+      </attributes>
+   </class>
+   <class name="TS" parent="DATA_VALUE">
+      <attributes>
+         <attribute name="null" attributeChildren="Result,Results">
+         </attribute>
+         <attribute name="time" attributeChildren="Date">
+         </attribute>
+      </attributes>
+   </class>
+   <class name="ABSTRACT_OBS">
+      <attributes>
+      </attributes>
+   </class>
+   <class name="Result" parent="ANY_TYPE">
+      <attributes>
+         <attribute name="data" attributeChildren="TS">
+         </attribute>
+      </attributes>
+   </class>
+   <class name="ANY_TYPE" isAbstract="true">
+      <attributes>
+      </attributes>
+   </class>
+   <class name="OBSERVATION" parent="ABSTRACT_OBS">
+      <attributes>
+         <attribute name="resultTime" attributeChildren="String">
+         </attribute>
+         <attribute name="featureofinterest" attributeChildren="String">
+         </attribute>
+         <attribute name="obsproperty" attributeChildren="ObservedProperty">
+         </attribute>
+         <attribute name="details" attributeChildren="DETAILS_COMPOSITE">
+         </attribute>
+         <attribute name="procedure" attributeChildren="String">
+         </attribute>
+         <attribute name="results_cluster" attributeChildren="Result,Results">
+         </attribute>
+      </attributes>
+   </class>
+   <class name="ObservedProperty">
+      <attributes>
+         <attribute name="details" attributeChildren="DETAILS_COMPOSITE,DETAILS_ELEMENT">
+         </attribute>
+      </attributes>
+   </class>
+   <class name="DETAILS_ELEMENT" parent="NAMED_VALUE">
+      <attributes>
+         <attribute name="data_value" attributeChildren="TS">
+         </attribute>
+      </attributes>
+   </class>
+   <class name="Geo_Data_Document" parent="IDENTITY_ABSTRACT">
+      <attributes>
+         <attribute name="geoDataComposition" attributeChildren="GeoData_COMPOSITION,Geo_Data_Document">
+         </attribute>
+         <attribute name="name" attributeChildren="String">
+         </attribute>
+         <attribute name="archetype_id" attributeChildren="String">
+         </attribute>
+         <attribute name="details" attributeChildren="DETAILS_COMPOSITE">
+         </attribute>
+      </attributes>
+   </class>
+   <class name="NAMED_VALUE" isAbstract="true">
+      <attributes>
+      </attributes>
+   </class>
+   <class name="IDENTITY_ABSTRACT" isAbstract="true">
+      <attributes>
+         <attribute name="archetype_id" attributeChildren="String">
+         </attribute>
+         <attribute name="name" attributeChildren="String">
+         </attribute>
+      </attributes>
+   </class>
+   <class name="DATA_VALUE" isAbstract="true">
+      <attributes>
+         <attribute name="null" attributeChildren="Result,Results">
+         </attribute>
+      </attributes>
+   </class>
+   <class name="DETAILS_COMPOSITE" parent="NAMED_VALUE">
+      <attributes>
+         <attribute name="element" attributeChildren="DETAILS_COMPOSITE,DETAILS_ELEMENT">
+         </attribute>
+      </attributes>
+   </class>
+</RMDocumentation>

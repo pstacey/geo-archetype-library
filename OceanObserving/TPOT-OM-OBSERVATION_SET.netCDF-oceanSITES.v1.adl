@@ -1,0 +1,378 @@
+archetype (adl_version=1.4)
+    TPOT-OM-OBSERVATION_SET.netCDF-oceanSITES.v1
+specialize
+    TPOT-OM-OBSERVATION_SET.netCDF.v1
+
+concept
+    [at0000.1]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["name"] = <"unknown">
+        ["organisation"] = <"unknown">
+    >
+    lifecycle_state = <"Draft">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+
+definition
+    OBSERVATION_SET[at0000.1] occurrences matches {1..1} matches {  -- netCDF - Specialization: oceanSITES
+        details existence matches {1..1} matches {
+            DETAILS_COMPOSITE[at0001.2] occurrences matches {1..1} matches {  -- *header
+                element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                    DETAILS_COMPOSITE[at0.4] occurrences matches {1..1} matches {  -- WHAT
+                        element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            DETAILS_ELEMENT[at0.9] occurrences matches {1..1} matches {*}  -- source
+                            DETAILS_ELEMENT[at0.10] occurrences matches {1..1} matches {*}  -- format_version 
+                            DETAILS_ELEMENT[at0.11] occurrences matches {1..1} matches {*}  -- platform_code 
+                            DETAILS_ELEMENT[at0.12] occurrences matches {1..1} matches {  -- date_update 
+                                data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                                    DV_DATE[at0.13] occurrences matches {0..*} matches {  -- 
+                                        value existence matches {1..1} matches {/\d{4}((((0[1-9])|(1[0-2]))((0[1-9])|([12]\d)|(3[01]))?)?|(\-(((0[1-9])|(1[0-2]))(\-((0[1-9])|([12]\d)|(3[01])))?)?)?)/}
+                                        magnitude_status existence matches {0..1} matches {*}
+                                        normal_range existence matches {0..1} matches {*}
+                                        normal_status existence matches {0..1} matches {*}
+                                        accuracy existence matches {0..1} matches {*}
+                                        other_reference_ranges existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {*}
+                                    }
+                                }
+                            }
+                            DETAILS_ELEMENT[at0.14] occurrences matches {0..1} matches {*}  -- institution
+                            DETAILS_ELEMENT[at0.15] occurrences matches {0..*} matches {*}  -- array
+                            DETAILS_ELEMENT[at0.16] occurrences matches {0..1} matches {*}  -- network
+                            DETAILS_ELEMENT[at0.17] occurrences matches {0..1} matches {*}  -- wmo_platform_code
+                            DETAILS_ELEMENT[at0.18] occurrences matches {0..*} matches {*}  -- history
+                            DETAILS_ELEMENT[at0.19] occurrences matches {1..1} matches {*}  -- data_mode 
+                            DETAILS_ELEMENT[at0.20] occurrences matches {0..*} matches {*}  -- quality_control_in
+                            DETAILS_ELEMENT[at0.21] occurrences matches {0..1} matches {*}  -- quality_index
+                            DETAILS_ELEMENT[at0.22] occurrences matches {0..*} matches {*}  -- references
+                            DETAILS_ELEMENT[at0.23] occurrences matches {0..*} matches {*}  -- comment
+                            DETAILS_ELEMENT[at0.24] occurrences matches {0..*} matches {*}  -- Conventions
+                            DETAILS_ELEMENT[at0.25] occurrences matches {0..*} matches {*}  -- Netcdf_version 
+                            DETAILS_ELEMENT[at0.26] occurrences matches {0..*} matches {*}  -- title summary
+                            DETAILS_COMPOSITE[at0.28] occurrences matches {0..1} matches {  -- naming_authority id
+                                element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                                    DETAILS_ELEMENT[at0.29] occurrences matches {1..1} matches {*}  -- naming_authority
+                                    DETAILS_ELEMENT[at0.30] occurrences matches {1..1} matches {*}  -- id
+                                }
+                            }
+                            DETAILS_ELEMENT[at0.31] occurrences matches {0..*} matches {*}  -- cdm_data_type 
+                        }
+                    }
+                    DETAILS_COMPOSITE[at0.5] occurrences matches {1..1} matches {  -- WHERE
+                        element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            DETAILS_ELEMENT[at0.32] occurrences matches {0..1} matches {  -- area
+                                data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {*}
+                            }
+                            DETAILS_ELEMENT[at0.33] occurrences matches {1..1} matches {  -- geospatial_lat_min
+                                data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {*}
+                            }
+                            DETAILS_ELEMENT[at0.34] occurrences matches {1..1} matches {  -- geospatial_lat_max
+                                data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {*}
+                            }
+                            DETAILS_ELEMENT[at0.35] occurrences matches {1..1} matches {  -- geospatial_lon_min
+                                data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {*}
+                            }
+                            DETAILS_ELEMENT[at0.36] occurrences matches {1..1} matches {  -- geospatial_lon_max
+                                data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {*}
+                            }
+                            DETAILS_ELEMENT[at0.37] occurrences matches {0..1} matches {  -- geospatial_vertical_min 
+                                data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {*}
+                            }
+                            DETAILS_ELEMENT[at0.38] occurrences matches {0..1} matches {  -- geospatial_vertical_max
+                                data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {*}
+                            }
+                        }
+                    }
+                    DETAILS_COMPOSITE[at0.6] occurrences matches {1..1} matches {  -- WHEN
+                        element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            DETAILS_ELEMENT[at0.39] occurrences matches {0..1} matches {*}  -- time_coverage_start 
+                            DETAILS_ELEMENT[at0.40] occurrences matches {0..1} matches {*}  -- time_coverage_end
+                        }
+                    }
+                    DETAILS_COMPOSITE[at0.7] occurrences matches {1..1} matches {  -- WHO
+                        element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            DETAILS_ELEMENT[at0.41] occurrences matches {0..*} matches {*}  -- institution_references 
+                            DETAILS_ELEMENT[at0.42] occurrences matches {0..1} matches {*}  -- contact
+                            DETAILS_ELEMENT[at0.43] occurrences matches {0..1} matches {*}  -- author
+                            DETAILS_ELEMENT[at0.44] occurrences matches {0..1} matches {*}  -- data_assembly_center 
+                            DETAILS_ELEMENT[at0.45] occurrences matches {0..1} matches {*}  -- pi_name 
+                        }
+                    }
+                    DETAILS_COMPOSITE[at0.8] occurrences matches {1..1} matches {  -- HOW
+                        element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            DETAILS_ELEMENT[at0.46] occurrences matches {0..1} matches {  -- distribution_statement 
+                                data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {*}
+                            }
+                            DETAILS_ELEMENT[at0.47] occurrences matches {0..1} matches {*}  -- citation
+                            DETAILS_ELEMENT[at0.48] occurrences matches {0..1} matches {*}  -- update_interval 
+                            DETAILS_ELEMENT[at0.49] occurrences matches {0..1} matches {*}  -- qc_manual 
+                        }
+                    }
+                }
+            }
+        }
+        observation existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+            OBSERVATION_SET[at0002.51] occurrences matches {0..*} matches {  -- *data part
+                observation existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {*}
+            }
+        }
+        archetype_id existence matches {0..1} matches {*}
+    }
+
+ontology
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000.1"] = <
+                    text = <"netCDF - Specialization: oceanSITES">
+                    description = <"netCDF - Specialization: oceanSITES">
+                >
+                ["at0001.2"] = <
+                    text = <"*header">
+                    description = <"*NetCDF header part - a header, containing all the information about dimensions, attributes, and variables except for the variable data; reference https://www.unidata.ucar.edu/software/netcdf/docs/file_structure_and_performance.html">
+                >
+                ["at0.4"] = <
+                    text = <"WHAT">
+                    description = <"http://www.odip.org/documents/odip/downloads/19/oceansites_user_manual_version1.2.pdf">
+                >
+                ["at0.5"] = <
+                    text = <"WHERE">
+                    description = <"http://www.odip.org/documents/odip/downloads/19/oceansites_user_manual_version1.2.pdf">
+                >
+                ["at0.6"] = <
+                    text = <"WHEN">
+                    description = <"http://www.odip.org/documents/odip/downloads/19/oceansites_user_manual_version1.2.pdf">
+                >
+                ["at0.7"] = <
+                    text = <"WHO">
+                    description = <"http://www.odip.org/documents/odip/downloads/19/oceansites_user_manual_version1.2.pdf">
+                >
+                ["at0.8"] = <
+                    text = <"HOW">
+                    description = <"http://www.odip.org/documents/odip/downloads/19/oceansites_user_manual_version1.2.pdf">
+                >
+                ["at0.9"] = <
+                    text = <"source">
+                    description = <"The method of production of the original data. For OceanSITES data, use one of the
+following: “Shipborne observation”, “Mooring observation”">
+                >
+                ["at0.10"] = <
+                    text = <"format_version ">
+                    description = <"OceanSITES format version Example: “1.1”. This attribute is mandatory. ">
+                >
+                ["at0.11"] = <
+                    text = <"platform_code ">
+                    description = <"Platform unique code within OceanSITES project. Example: “CIS-1” mooring on CIS site (Central Irminger
+Sea). This attribute is mandatory. ">
+                >
+                ["at0.12"] = <
+                    text = <"date_update ">
+                    description = <"File update or creation date (UTC). See note on time format below. This attribute is mandatory. ">
+                >
+                ["at0.13"] = <
+                    text = <"">
+                    description = <"">
+                >
+                ["at0.14"] = <
+                    text = <"institution">
+                    description = <"Specifies institution where the original data was produced. ">
+                >
+                ["at0.15"] = <
+                    text = <"array">
+                    description = <"An OceanSITES array is a grouping of sites based on a common and identified scientific question, or on a common geographic location.
+See the definition in the glossary chapter of http://www.odip.org/documents/odip/downloads/19/oceansites_user_manual_version1.2.pdf">
+                >
+                ["at0.16"] = <
+                    text = <"network">
+                    description = <"An OceansSITES network is a grouping of sites based on common shore-based logistics or
+infrastructure">
+                >
+                ["at0.17"] = <
+                    text = <"wmo_platform_code">
+                    description = <"WMO (World Meteorological Organization) identifier. This platform number is unique within the
+OceanSITES project. Example: “48409” for CIS-1 mooring. ">
+                >
+                ["at0.18"] = <
+                    text = <"history">
+                    description = <"Provides an audit trail for modifications to the
+original data. It should contain a separate line for each modification, with each line beginning with a timestamp, and including user name, modification name, and modification arguments. The time stamp should follow the format outlined in the note on time formats below. ">
+                >
+                ["at0.19"] = <
+                    text = <"data_mode ">
+                    description = <"Indicates if the file contains real-time, provisional or delayed-mode data. The list of valid data modes is in reference
+table 5. http://www.odip.org/documents/odip/downloads/19/oceansites_user_manual_version1.2.pdf">
+                >
+                ["at0.20"] = <
+                    text = <"quality_control_in">
+                    description = <"Level of quality control applied to data. The values are listed in reference table 2.1. ">
+                >
+                ["at0.21"] = <
+                    text = <"quality_index">
+                    description = <"A code value valid for the whole dataset:
+0 unknown quality
+A excellent (no known problems, regular quality checking)
+B probably good (occasional problems,
+validation phase)
+C extremely suspect, frequent problems ">
+                >
+                ["at0.22"] = <
+                    text = <"references">
+                    description = <"Published or web-based references that
+describe the data or methods used to produce
+it. Include a reference to OceanSITES and a
+project-specific reference if appropriate. ">
+                >
+                ["at0.23"] = <
+                    text = <"comment">
+                    description = <"Miscellaneous information about the data or methods used to produce it. Any free-format
+text is appropriate. ">
+                >
+                ["at0.24"] = <
+                    text = <"Conventions">
+                    description = <"1” Name of the conventions followed by the
+dataset.
+“convention” starting in lower case ‘c’ is still
+valid but will become obsolete">
+                >
+                ["at0.25"] = <
+                    text = <"Netcdf_version ">
+                    description = <"Netcdf version used for the data set ">
+                >
+                ["at0.26"] = <
+                    text = <"title summary">
+                    description = <"Free-format text describing the dataset. The
+display of these two attributes together should
+allow data discovery for a human reader.
+“title”: title of the dataset. Use the file name if in
+doubt.
+“summary”: a longer description of the dataset.
+A paragraph of up to 100 words is appropriate">
+                >
+                ["at0.28"] = <
+                    text = <"naming_authority id">
+                    description = <"The “id” and “naming_authority” attributes are
+intended to provide a globally unique
+identification for each dataset. For
+OceanSITES data, use:
+naming_authority=”OceanSITES” and
+id=file name (without .nc suffix), which is
+designed to be unique. ">
+                >
+                ["at0.29"] = <
+                    text = <"naming_authority">
+                    description = <"">
+                >
+                ["at0.30"] = <
+                    text = <"id">
+                    description = <"">
+                >
+                ["at0.31"] = <
+                    text = <"cdm_data_type ">
+                    description = <"The “cdm_data_type” attribute gives the
+Unidata CDM (common data model) data type
+used by THREDDS. E.g. “Point”, “Trajectory”,
+“Station”, “Radial”, “Grid”, “Swath”.
+Use “Station” for OceanSITES mooring data.
+More:
+http://www.unidata.ucar.edu/projects/THREDD
+S/CDM/CDM-TDS.htm">
+                >
+                ["at0.32"] = <
+                    text = <"area">
+                    description = <"Geographical coverage. Try to compose of the
+following:
+North/Tropical/South Atlantic/Pacific/Indian
+Ocean, Southern Ocean, Arctic Ocean.
+For specific sea area, use the International
+Hydrographic Bureau sea areas available at :
+http://vocab.ndg.nerc.ac.uk/client/vocabServer.j
+sp.">
+                >
+                ["at0.33"] = <
+                    text = <"geospatial_lat_min">
+                    description = <"The southernmost latitude, a value between -90 and 90 degrees.">
+                >
+                ["at0.34"] = <
+                    text = <"geospatial_lat_max">
+                    description = <"The northernmost latitude, a value between -90 and 90 degrees.
+">
+                >
+                ["at0.35"] = <
+                    text = <"geospatial_lon_min">
+                    description = <"The westernmost longitude, a value between - 180 and 180 degrees. ">
+                >
+                ["at0.36"] = <
+                    text = <"geospatial_lon_max">
+                    description = <"The easternmost longitude, a value between - 180 and 180 degrees. ">
+                >
+                ["at0.37"] = <
+                    text = <"geospatial_vertical_min ">
+                    description = <"Minimum depth for measurements">
+                >
+                ["at0.38"] = <
+                    text = <"geospatial_vertical_max">
+                    description = <"Maximum depth for measurements ">
+                >
+                ["at0.39"] = <
+                    text = <"time_coverage_start ">
+                    description = <"Start date of the data in UTC. See note on time format below. http://www.odip.org/documents/odip/downloads/19/oceansites_user_manual_version1.2.pdf">
+                >
+                ["at0.40"] = <
+                    text = <"time_coverage_end">
+                    description = <"Final date of the data in UTC. See note on time format below. ">
+                >
+                ["at0.41"] = <
+                    text = <"institution_references ">
+                    description = <"References to data provider institution, the place to find all information on the dataset
+(web-based, i.e. give URLs). ">
+                >
+                ["at0.42"] = <
+                    text = <"contact">
+                    description = <"Contact person’s e-mail. ">
+                >
+                ["at0.43"] = <
+                    text = <"author">
+                    description = <"Name of the person responsible for the creation of the dataset. ">
+                >
+                ["at0.44"] = <
+                    text = <"data_assembly_center ">
+                    description = <"Data Assembly Center (DAC) in charge of this data file. The data_assembly_center are listed in reference table 4. ">
+                >
+                ["at0.45"] = <
+                    text = <"pi_name ">
+                    description = <"Name of the principal investigator in charge of the platform. ">
+                >
+                ["at0.46"] = <
+                    text = <"distribution_statement ">
+                    description = <"Statement describing data distribution policy. OceanSITES has adopted the CLIVAR data policy, which explicitly calls for free and
+unrestricted data exchange. Details at: http://www.clivar.org/data/data_policy.php">
+                >
+                ["at0.47"] = <
+                    text = <"citation">
+                    description = <"The citation to be used in publications using the dataset. ">
+                >
+                ["at0.48"] = <
+                    text = <"update_interval ">
+                    description = <"Update interval for the file, one of the following:
+“hourly”, “daily”, “yearly”, “void”.
+Use “void” for delayed-mode or archive data
+that do not need continuous updating. ">
+                >
+                ["at0.49"] = <
+                    text = <"qc_manual ">
+                    description = <"This field contains the name of the manual that describes the quality control procedure. As of now, there is no separate QC manual, so the user’s manual is the appropriate reference. example : qc_manual=”http://www.ocensites.org/data/quality_control_manual.pdf”">
+                >
+                ["at0002.51"] = <
+                    text = <"*data part">
+                    description = <"*comprising fixed-size data, containing the data for variables that don't have an unlimited dimension; and variable-size data, containing the data for variables that have an unlimited dimension. ref https://www.unidata.ucar.edu/software/netcdf/docs/file_structure_and_performance.html">
+                >
+            >
+        >
+    >

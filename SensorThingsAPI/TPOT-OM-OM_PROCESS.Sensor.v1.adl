@@ -1,0 +1,106 @@
+archetype (adl_version=1.4)
+    TPOT-OM-OM_PROCESS.Sensor.v1
+
+concept
+    [at0000]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2020-11-11">
+        ["name"] = <"Paul Stacey">
+        ["organisation"] = <"TU Dublin">
+        ["email"] = <"paul.stacey@tudublin.ie">
+    >
+    lifecycle_state = <"Draft">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            purpose = <"
+">
+        >
+    >
+
+definition
+    OM_PROCESS[at0000] occurrences matches {1..1} matches {  -- Datastream
+        null existence matches {1..1} matches {
+            DETAILS_COMPOSITE[at0001] occurrences matches {0..1} matches {  -- 
+                element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                    DETAILS_ELEMENT[at0002] occurrences matches {1..*} matches {  -- name
+                        data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            OM_STRING[at0003] occurrences matches {0..*} matches {  -- OM_STRING
+                                value existence matches {1..1} matches {/.*/}
+                            }
+                        }
+                    }
+                    DETAILS_ELEMENT[at0004] occurrences matches {1..*} matches {  -- description
+                        data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            OM_STRING[at0005] occurrences matches {0..*} matches {  -- OM_STRING
+                                value existence matches {1..1} matches {/.*/}
+                            }
+                        }
+                    }
+                    DETAILS_ELEMENT[at0006] occurrences matches {1..*} matches {  -- unitOfMeasurement
+                        data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            OM_STRING[at0007] occurrences matches {0..*} matches {  -- OM_STRING
+                                value existence matches {1..1} matches {*}
+                            }
+                        }
+                    }
+                    DETAILS_ELEMENT[at0008] occurrences matches {0..*} matches {  -- observationType
+                        data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {*}
+                    }
+                }
+            }
+        }
+    }
+
+ontology
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000"] = <
+                    text = <"Sensor">
+                    description = <"The Observations in a Datastream are performed by one-and-only-one Sensor. One Sensor MAY produce zero-to-many Observations in different Datastreams.">
+                >
+                ["at0001"] = <
+                    text = <"DETAILS_COMPOSITE">
+                    description = <"">
+                >
+                ["at0002"] = <
+                    text = <"name">
+                    description = <"A property provides a label for Sensor entity, commonly a descriptive name.">
+                >
+                ["at0003"] = <
+                    text = <"OM_STRING">
+                    description = <"">
+                >
+                ["at0004"] = <
+                    text = <"description">
+                    description = <"The description of the Sensor entity">
+                >
+                ["at0005"] = <
+                    text = <"OM_STRING">
+                    description = <"">
+                >
+                ["at0006"] = <
+                    text = <"encodingType">
+                    description = <"The encoding type of the metadata property. Its value is one of the ValueCode enumeration 
+
+PDF : application/pdf
+
+SensorML : http://www.opengis.net/doc/IS/SensorML/2.0">
+                >
+                ["at0007"] = <
+                    text = <"OM_STRING">
+                    description = <"">
+                >
+                ["at0008"] = <
+                    text = <"metadata">
+                    description = <"The detailed description of the Sensor or system. The metadata type is defined by encodingType.">
+                >
+            >
+        >
+    >

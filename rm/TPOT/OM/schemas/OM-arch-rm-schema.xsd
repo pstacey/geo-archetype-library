@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Augmented OGC Observations & Measurements Dual Model RM (Reference Model)  XML schema -->
+<!-- Authored by TeaPOT July 2018 -->
+<!-- Usage: RM for North Sea Study -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="v1.0.0" targetNamespace="http://tpot.dit.ie"  xmlns="http://tpot.dit.ie">
+	
+	<!--<xs:include schemaLocation="OM-identity_component.xsd" />-->
+	<!--<xs:include schemaLocation="OM-dataTypes.xsd" />-->
+
+	<!-- What is the Identity Model? is fixed realistic here in the GIS domain -->
+	<!-- Assuming a non fixed identity model-->
+	<!-- This is the document identity, in Health Care the patient or the DEMOGRAPHIC is the fixed identity Model, or the tpoic of information-->
+	<!-- BASED ON GRIM FLEXIBLE IDENTITY_COMPONENT, this is the documentation level-->
+		
+	<xs:complexType name="IDENTITY_ABSTRACT" abstract="true">
+		<!--<xs:extension base="LOCATABLE">-->
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="archetype_id" type="xs:string" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- IDENTITY is a Composition Archetype Class of which we can generate storage level Concepts-->
+	<xs:element name="geo_identity" type="Geo_Data_Document" />
+	
+	<xs:complexType name="GeoData_COMPOSITION">
+		<xs:complexContent>
+			<xs:extension base="IDENTITY_ABSTRACT">
+				<xs:sequence>
+					<xs:element name="name" type="xs:string" />
+					<xs:element name="archetype_id" type="xs:string" minOccurs="0" maxOccurs="1" />
+					<xs:element name="Observation_Set " type="ABSTRACT_OBS" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element name="details" type="DETAILS_COMPOSITE" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="Geo_Data_Document">
+		<xs:complexContent>
+			<xs:extension base="IDENTITY_ABSTRACT">
+				<xs:sequence>
+					<xs:element name="name" type="xs:string" />
+					<xs:element name="archetype_id" type="xs:string" minOccurs="0" maxOccurs="1" />
+					<xs:element name="GeoDataComposition" type="IDENTITY_ABSTRACT" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element name="details" type="DETAILS_COMPOSITE" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- OBSERVATION_SET is a SECTION Archetype Class??-->
+	<xs:element name="observation_set" type="OBSERVATION_SET" />
+	
+	<xs:complexType name="OBSERVATION_SET">
+		<xs:complexContent>
+			<xs:extension base="ABSTRACT_OBS">
+				<xs:sequence>
+					<xs:element name="details" type="DETAILS_COMPOSITE" />
+					<!-- OBSERVATION is an ENTRY Archetype Clas?? -->
+					<!-- An ENTRY can be interpreted independent of the COMPOSITION or the SECTION within which they are located -->
+					<xs:element name="observation" type="ABSTRACT_OBS" minOccurs="1" maxOccurs="unbounded" />
+					<xs:element name="relationship" type="ObservedProperty" minOccurs="1" maxOccurs="1" />
+					<xs:element name="relationship" type="FeatureOfInterest" minOccurs="1" maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="OBSERVATION">
+		<xs:complexContent>
+			<xs:extension base="ABSTRACT_OBS">
+				<xs:sequence>
+					<xs:element name="details" type="DETAILS_COMPOSITE" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="featureofinterest" type="xs:string" minOccurs="1" maxOccurs="1" />
+					<xs:element name="obsproperty" type="ObservedProperty" minOccurs="1" maxOccurs="1" />
+					<xs:element name="results_cluster" type="ANY_TYPE"  minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element name="resultTime" type="xs:string"/>
+					<xs:element name="procedure" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="ABSTRACT_OBS">
+		<!--<xs:extension base="LOCATABLE">-->
+	</xs:complexType>
+	
+	
+	<xs:complexType name="NAMED_VALUE" abstract="true">
+				
+	</xs:complexType>
+	
+	<xs:complexType name="DETAILS_COMPOSITE">
+		<xs:complexContent>
+			<xs:extension base="NAMED_VALUE">
+				<xs:sequence>
+					<xs:element name="element" type="NAMED_VALUE" minOccurs="1" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="DETAILS_ELEMENT">
+		<xs:complexContent>
+			<xs:extension base="NAMED_VALUE">
+				<xs:sequence>
+					<xs:element name="data_value" type="DATA_VALUE" minOccurs="1" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+
+	
+	<xs:complexType name="ObservedProperty">
+			<xs:sequence>
+				<xs:element name="details" type="NAMED_VALUE" />
+			</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="FeatureOfInterest">
+			<xs:sequence>
+				<xs:element name="details" type="NAMED_VALUE" />
+			</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="TS">
+		<xs:complexContent>
+			<xs:extension base="DATA_VALUE">
+				<xs:sequence>
+					<xs:element name="time" type="xs:date" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="DATA_VALUE" abstract="true">
+		<xs:sequence>
+			<xs:element name="null" type="ANY_TYPE" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ANY_TYPE" abstract="true">
+
+	</xs:complexType>
+	
+	<xs:complexType name="Result">
+		<xs:complexContent>
+			<xs:extension base="ANY_TYPE">
+				<xs:sequence>
+					<xs:element name="data" type="DATA_VALUE" minOccurs="1" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="Results">
+			<xs:complexContent>
+				<xs:extension base="ANY_TYPE">
+					<xs:sequence>
+						<xs:element name="result_element" type="ANY_TYPE" minOccurs="1" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	
+</xs:schema>

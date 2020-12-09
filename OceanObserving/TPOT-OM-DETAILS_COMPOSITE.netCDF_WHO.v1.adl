@@ -1,0 +1,73 @@
+archetype (adl_version=1.4)
+    TPOT-OM-DETAILS_COMPOSITE.OceanSites_WHO.v1
+
+concept
+    [at0000]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["name"] = <"unknown">
+        ["organisation"] = <"unknown">
+    >
+    lifecycle_state = <"Draft">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+
+definition
+    DETAILS_COMPOSITE[at0000] occurrences matches {1..1} matches {  -- 
+        element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+            DETAILS_ELEMENT[at0001] occurrences matches {0..1} matches {  -- 
+                data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                    OM_STRING[at0002] occurrences matches {0..*} matches {  -- 
+                        value existence matches {1..1} matches {/.*/}
+                    }
+                }
+            }
+            DETAILS_ELEMENT[at0003] occurrences matches {0..1} matches {*}  -- 
+            DETAILS_ELEMENT[at0004] occurrences matches {0..1} matches {*}  -- 
+            DETAILS_ELEMENT[at0005] occurrences matches {0..1} matches {*}  -- 
+            DETAILS_ELEMENT[at0006] occurrences matches {0..1} matches {*}  -- 
+        }
+    }
+
+ontology
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000"] = <
+                    text = <"OceanSites WHO">
+                    description = <"Oceansites who information">
+                >
+                ["at0001"] = <
+                    text = <"pi_name">
+                    description = <"name of PI">
+                >
+                ["at0002"] = <
+                    text = <"">
+                    description = <"">
+                >
+                ["at0003"] = <
+                    text = <"institution_references">
+                    description = <"References to data provider institution, the place to find all information on the dataset (web-based, i.e. give URLs). ">
+                >
+                ["at0004"] = <
+                    text = <"contact">
+                    description = <"Contact person’s e-mail. ">
+                >
+                ["at0005"] = <
+                    text = <"author ">
+                    description = <"">
+                >
+                ["at0006"] = <
+                    text = <"data_assembly_centre">
+                    description = <"Data Assembly Center (DAC) in charge of this data file. The data_assembly_center are listed in reference table 4. ">
+                >
+            >
+        >
+    >

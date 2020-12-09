@@ -1,0 +1,144 @@
+archetype (adl_version=1.4)
+    TPOT-OM-OM_PROCESS.procedure-SimpleProcess.v1
+specialize
+    TPOT-OM-OM_PROCESS.procedure.v1
+
+concept
+    [at0000.1]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["name"] = <"unknown">
+        ["organisation"] = <"unknown">
+    >
+    lifecycle_state = <"Draft">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+
+definition
+    OM_PROCESS[at0000.1] occurrences matches {1..1} matches {  -- procedure - Specialization: SimpleProcess
+        null existence matches {1..1} matches {
+            DETAILS_COMPOSITE[at0003.2] occurrences matches {0..1} matches {  -- *DETAILS_COMPOSITE
+                element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                    DETAILS_COMPOSITE[at0.7] occurrences matches {1..*} matches {  -- method
+                        element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            DETAILS_COMPOSITE[at0.8] occurrences matches {1..*} matches {  -- ProcessMethod
+                                element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                                    DETAILS_COMPOSITE[at0.9] occurrences matches {1..1} matches {  -- algorithm
+                                        element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                                            DETAILS_COMPOSITE[at0.16] occurrences matches {1..1} matches {  -- GAM
+                                                element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                                                    DETAILS_COMPOSITE[at0.17] occurrences matches {1..*} matches {  -- Parameters
+                                                        element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                                                            DETAILS_COMPOSITE[at0.18] occurrences matches {0..*} matches {*}  -- 
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    DETAILS_COMPOSITE[at0.12] occurrences matches {1..1} matches {  -- AbstractSWEIdentifiable
+                                        element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                                            DETAILS_ELEMENT[at0.13] occurrences matches {1..1} matches {*}  -- identifier
+                                            DETAILS_ELEMENT[at0.14] occurrences matches {1..1} matches {*}  -- label
+                                            DETAILS_ELEMENT[at0.15] occurrences matches {1..1} matches {*}  -- description
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+ontology
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000.1"] = <
+                    text = <"procedure - Specialization: SimpleProcess">
+                    description = <"procedure - Specialization: SimpleProcess">
+                >
+                ["at0003.2"] = <
+                    text = <"*DETAILS_COMPOSITE">
+                    description = <"*">
+                >
+                ["at0.7"] = <
+                    text = <"method">
+                    description = <"">
+                >
+                ["at0.8"] = <
+                    text = <"ProcessMethod">
+                    description = <"">
+                >
+                ["at0.9"] = <
+                    text = <"algorithm">
+                    description = <"">
+                >
+                ["at0.12"] = <
+                    text = <"AbstractSWEIdentifiable">
+                    description = <"">
+                >
+                ["at0.13"] = <
+                    text = <"identifier">
+                    description = <"">
+                >
+                ["at0.14"] = <
+                    text = <"label">
+                    description = <"">
+                >
+                ["at0.15"] = <
+                    text = <"description">
+                    description = <"">
+                >
+                ["at0.16"] = <
+                    text = <"GAM">
+                    description = <"">
+                >
+                ["at0.17"] = <
+                    text = <"Parameters">
+                    description = <"">
+                >
+                ["at0004"] = <
+                    text = <"definition">
+                    description = <"">
+                >
+                ["at0005"] = <
+                    text = <"tyoeOf">
+                    description = <"">
+                >
+                ["at0006"] = <
+                    text = <"configuration">
+                    description = <"">
+                >
+                ["at0007"] = <
+                    text = <"featuresOfInterest">
+                    description = <"">
+                >
+                ["at0008"] = <
+                    text = <"inputs">
+                    description = <"">
+                >
+                ["at0009"] = <
+                    text = <"outputs">
+                    description = <"">
+                >
+                ["at0010"] = <
+                    text = <"paramters">
+                    description = <"">
+                >
+                ["at0011"] = <
+                    text = <"modes">
+                    description = <"">
+                >
+            >
+        >
+    >

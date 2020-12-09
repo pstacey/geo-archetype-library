@@ -9,21 +9,123 @@ language
 
 description
     original_author = <
-        ["date"] = <"2019-04-09">
+        ["date"] = <"2020-11-11">
+        ["name"] = <"Paul Stacey">
+        ["organisation"] = <"TU Dublin">
+        ["email"] = <"paul.stacey@tudublin.ie">
     >
     lifecycle_state = <"Draft">
     details = <
         ["en"] = <
             language = <[ISO_639-1::en]>
+            purpose = <"
+">
         >
     >
 
 definition
     OBSERVATION_SET[at0000] occurrences matches {1..1} matches {  -- Datastream
-        details existence matches {1..1} matches {
-            DETAILS_COMPOSITE[at0001] occurrences matches {1..1} matches {*}  -- Properties
+        observation existence matches {1..1} cardinality matches {0..*; unordered; unique} matches {
+            OBSERVATION[at0024] occurrences matches {0..*} matches {  -- Observation
+                archetype_id existence matches {0..1} matches {*}
+                details existence matches {0..1} matches {*}
+                featureofinterest existence matches {1..1} matches {*}
+                name existence matches {1..1} matches {*}
+                obsproperty existence matches {1..1} matches {
+                    ObservedProperty[at0027] occurrences matches {1..1} matches {*}  -- ObservedProperty
+                }
+                om_process existence matches {1..1} matches {
+                    allow_archetype OM_PROCESS[at0025] occurrences matches {1..1} matches {  -- Sensor
+                        include
+                            archetype_id/value matches {/TPOT-OM-OM_PROCESS\.Sensor\.v1/}
+                    }
+                }
+                procedure existence matches {1..1} matches {*}
+                resultTime existence matches {1..1} matches {*}
+                results_cluster existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {*}
+            }
         }
-        observation existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {*}
+        details existence matches {1..1} matches {
+            DETAILS_COMPOSITE[at0001] occurrences matches {1..1} matches {  -- 
+                element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                    DETAILS_ELEMENT[at0002] occurrences matches {1..1} matches {  -- name
+                        data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            OM_STRING[at0003] occurrences matches {0..*} matches {  -- OM_STRING
+                                value existence matches {1..1} matches {"empty"}
+                            }
+                        }
+                    }
+                    DETAILS_ELEMENT[at0004] occurrences matches {1..1} matches {  -- description
+                        data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            OM_STRING[at0005] occurrences matches {0..*} matches {  -- OM_STRING
+                                value existence matches {1..1} matches {/.*/}
+                            }
+                        }
+                    }
+                    DETAILS_ELEMENT[at0006] occurrences matches {1..1} matches {  -- unitOfMeasurement
+                        data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            OM_STRING[at0007] occurrences matches {0..*} matches {  -- OM_STRING
+                                value existence matches {1..1} matches {
+                                    [ac0001]
+                                }
+                            }
+                        }
+                    }
+                    DETAILS_ELEMENT[at0008] occurrences matches {1..1} matches {  -- observationType
+                        data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            OM_STRING[at0014] occurrences matches {0..*} matches {  -- OM_STRING
+                                value existence matches {1..1} matches {
+                                    [ac0002]
+                                }
+                            }
+                        }
+                    }
+                    DETAILS_ELEMENT[at0009] occurrences matches {0..1} matches {  -- observedArea
+                        data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            OM_STRING[at0015] occurrences matches {0..*} matches {  -- OM_STRING
+                                value existence matches {1..1} matches {/.*/}
+                            }
+                        }
+                    }
+                    DETAILS_ELEMENT[at0010] occurrences matches {0..1} matches {  -- phenomenonTime
+                        data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            DV_TIME[at0016] occurrences matches {0..*} matches {  -- TM_Time
+                                accuracy existence matches {0..1} matches {
+                                    DV_DURATION[at0018] occurrences matches {0..1} matches {  -- DV_DURATION
+                                        value existence matches {1..1} matches {/P(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(\d+H)?(\d+M)?(\d+(\.\d+)?S)?)?/}
+                                    }
+                                }
+                                value existence matches {1..1} matches {/([01]\d|2[0-3])([0-5]\d([0-5]\d([,.]\d+)?)?)?(Z|([+\-]((0\d)|(1[0-2]))(00|30)?))?|([01]\d|2[0-3])(:[0-5]\d(:[0-5]\d([,.]\d+)?)?)?(Z|([+\-]((0\d)|(1[0-2]))(:(00|30))?))?/}
+                                magnitude_status existence matches {0..1} matches {/.*/}
+                                normal_range existence matches {0..1} matches {
+                                    DV_INTERVAL[at0019] occurrences matches {0..1} matches {  -- DV_INTERVAL
+                                        lower existence matches {0..1} matches {*}
+                                        lower_included existence matches {0..1} matches {*}
+                                        lower_unbounded existence matches {1..1} matches {*}
+                                        upper existence matches {0..1} matches {*}
+                                        upper_included existence matches {0..1} matches {*}
+                                        upper_unbounded existence matches {1..1} matches {*}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    DETAILS_ELEMENT[at0011] occurrences matches {0..1} matches {  -- resultTime
+                        data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            DV_TIME[at0012] occurrences matches {0..*} matches {  -- TM_Period
+                                value existence matches {1..1} matches {/([01]\d|2[0-3])([0-5]\d([0-5]\d([,.]\d+)?)?)?(Z|([+\-]((0\d)|(1[0-2]))(00|30)?))?|([01]\d|2[0-3])(:[0-5]\d(:[0-5]\d([,.]\d+)?)?)?(Z|([+\-]((0\d)|(1[0-2]))(:(00|30))?))?/}
+                                accuracy existence matches {0..1} matches {*}
+                                magnitude_status existence matches {0..1} matches {*}
+                                normal_range existence matches {0..1} matches {*}
+                                normal_status existence matches {0..1} matches {*}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        archetype_id existence matches {0..1} matches {*}
+        name existence matches {1..1} matches {*}
     }
 
 ontology
@@ -32,11 +134,113 @@ ontology
             items = <
                 ["at0000"] = <
                     text = <"Datastream">
-                    description = <"Datastream">
+                    description = <"A Datastream groups a collection of Observations measuring the same ObservedProperty and produced by the same Sensor.
+http://www.opengis.net/spec/iot_sensing/1.0/req/datastream
+
+A concept that groups Observations ">
                 >
                 ["at0001"] = <
-                    text = <"Properties">
+                    text = <"">
+                    description = <"
+">
+                >
+                ["at0002"] = <
+                    text = <"name">
+                    description = <"A property provides a label for Datastream entity, commonly a descriptive name.">
+                >
+                ["at0003"] = <
+                    text = <"OM_STRING">
                     description = <"">
+                >
+                ["at0004"] = <
+                    text = <"description">
+                    description = <"The description of the Datastream entity.">
+                >
+                ["at0005"] = <
+                    text = <"OM_STRING">
+                    description = <"">
+                >
+                ["at0006"] = <
+                    text = <"unitOfMeasurement">
+                    description = <"A JSON Object containing three key-value pairs. The name property presents the full name of the unitOfMeasurement; the symbol property shows the textual form of the unit symbol; and the definition contains the URI defining the unitOfMeasurement.
+
+The values of these properties SHOULD follow the Unified Code for Unit of Measure (UCUM).">
+                >
+                ["at0007"] = <
+                    text = <"OM_STRING">
+                    description = <"">
+                >
+                ["at0008"] = <
+                    text = <"observationType">
+                    description = <"The type of Observation (with unique result type), which is used by the service to encode observations.
+
+">
+                >
+                ["at0009"] = <
+                    text = <"observedArea">
+                    description = <"The spatial bounding box of the spatial extent of all FeaturesOfInterest that belong to the Observations associated with this Datastream.">
+                >
+                ["at0010"] = <
+                    text = <"phenomenonTime">
+                    description = <"The temporal interval of the phenomenon times of all observations belonging to this Datastream.">
+                >
+                ["at0011"] = <
+                    text = <"resultTime">
+                    description = <"The temporal interval of the result times of all observations belonging to this Datastream.">
+                >
+                ["at0012"] = <
+                    text = <"TM_Period">
+                    description = <"">
+                >
+                ["at0014"] = <
+                    text = <"OM_STRING">
+                    description = <"">
+                >
+                ["at0015"] = <
+                    text = <"OM_STRING">
+                    description = <"">
+                >
+                ["at0016"] = <
+                    text = <"TM_Time">
+                    description = <"ISO 8601 Time Interval">
+                >
+                ["at0018"] = <
+                    text = <"DV_DURATION">
+                    description = <"">
+                >
+                ["at0019"] = <
+                    text = <"DV_INTERVAL">
+                    description = <"">
+                >
+                ["at0024"] = <
+                    text = <"Observation">
+                    description = <"A Datastream has zero-to-many Observations. One Observation SHALL occur in one-and-only-one Datastream.">
+                >
+                ["at0025"] = <
+                    text = <"Sensor">
+                    description = <"The Observations in a Datastream are performed by one-and-only-one Sensor. One Sensor MAY produce zero-to-many Observations in different Datastreams.">
+                >
+                ["at0027"] = <
+                    text = <"ObservedProperty">
+                    description = <"The Observations of a Datastream SHALL observe the same ObservedProperty. The Observations of different Datastreams MAY observe the same ObservedProperty.">
+                >
+            >
+        >
+    >
+    constraint_definitions = <
+        ["en"] = <
+            items = <
+                ["ac0001"] = <
+                    text = <"JSON Object">
+                    description = <"When a Datastream does not have a unit of measurement (e.g., a OM_TruthObservation type), the corresponding unitOfMeasurement properties SHALL have null values.">
+                >
+                ["ac0002"] = <
+                    text = <"The observationType defines the result types for specialized observations [OGC 10-004r3 and ISO 19156:2011 Table 3]. The description below shows some of the valueCodes that maps the UML classes in O&M v2.0 [OGC 10-004r3 and ISO 19156:2011] to observationType names and observation result types.">
+                    description = <"OM_CategoryObservation : http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CategoryObservation: URI
+OM_CountObservation : http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CountObservation : integer
+OM_Measurement : http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement : double
+OM_Observation : http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Observation : Any
+OM_TruthObservation : http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TruthObservation : boolean">
                 >
             >
         >

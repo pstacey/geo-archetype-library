@@ -1,0 +1,110 @@
+archetype (adl_version=1.4)
+    TPOT-OM-Geo_Data_Document.Geo_Data_Document.v1
+
+concept
+    [GeoDataDocumentat]
+
+language
+    original_language = <[ISO_639-1::EN-US]>
+
+description
+    original_author = <
+        ["original_author"] = <"VeraTech">
+    >
+    lifecycle_state = <"DRAFT">
+    details = <
+        ["EN-US"] = <
+            language = <[ISO_639-1::EN-US]>
+            purpose = <"general archetype for mapping to data sources">
+            copyright = <"Copyright(c)2006-2008 VeraTech">
+            use = <"mapping">
+            misuse = <"as a domain concept">
+        >
+    >
+
+definition
+    Geo_Data_Document[GeoDataDocumentat] occurrences matches {1..1} matches {  -- 
+        name existence matches {1..1} matches {/.*/}
+        archetype_id existence matches {0..1} matches {/.*/}
+        geoDataComposition existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+            GeoData_COMPOSITION[GeoDataCOMPOSITIONat] occurrences matches {0..*} matches {  -- 
+                name existence matches {1..1} matches {/.*/}
+                archetype_id existence matches {0..1} matches {/.*/}
+                observation_Set_ existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                    OBSERVATION_SET[OBSERVATIONSETat] occurrences matches {0..*} matches {  -- 
+                        details existence matches {1..1} matches {
+                            DETAILS_COMPOSITE[DETAILSCOMPOSITEat] occurrences matches {1..1} matches {  -- 
+                                element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                                    use_node DETAILS_COMPOSITE[DETAILSCOMPOSITEat] occurrences matches {0..*} /geoDataComposition[GeoDataCOMPOSITIONat]/observation_Set_[OBSERVATIONSETat]/details[DETAILSCOMPOSITEat]
+                                    DETAILS_ELEMENT[DETAILSELEMENTat] occurrences matches {0..*} matches {  -- 
+                                        data_value existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                                            TS[TSat] occurrences matches {1..*} matches {  -- 
+                                                null existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+                                                    Result[Resultat] occurrences matches {0..*} matches {  -- 
+                                                        data existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                                                            use_node TS[TSat] occurrences matches {1..*} /geoDataComposition[GeoDataCOMPOSITIONat]/observation_Set_[OBSERVATIONSETat]/details[DETAILSCOMPOSITEat]/element[DETAILSELEMENTat]/data_value[TSat]
+                                                        }
+                                                    }
+                                                    Results[Resultsat] occurrences matches {0..*} matches {  -- 
+                                                        result_element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                                                            use_node Result[Resultat] occurrences matches {0..*} /geoDataComposition[GeoDataCOMPOSITIONat]/observation_Set_[OBSERVATIONSETat]/details[DETAILSCOMPOSITEat]/element[DETAILSELEMENTat]/data_value[TSat]/null[Resultat]
+                                                            use_node Results[Resultsat] occurrences matches {0..*} /geoDataComposition[GeoDataCOMPOSITIONat]/observation_Set_[OBSERVATIONSETat]/details[DETAILSCOMPOSITEat]/element[DETAILSELEMENTat]/data_value[TSat]/null[Resultsat]
+                                                        }
+                                                    }
+                                                }
+                                                time existence matches {1..1} matches {yyyy-mm-dd}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        observation existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                            use_node OBSERVATION_SET[OBSERVATIONSETat] occurrences matches {0..*} /geoDataComposition[GeoDataCOMPOSITIONat]/observation_Set_[OBSERVATIONSETat]
+                            ABSTRACT_OBS[ABSTRACTOBSat] occurrences matches {0..*} matches {*}  -- 
+                            OBSERVATION[OBSERVATIONat] occurrences matches {0..*} matches {  -- 
+                                details existence matches {0..1} matches {
+                                    use_node DETAILS_COMPOSITE[DETAILSCOMPOSITEat] occurrences matches {0..1} /geoDataComposition[GeoDataCOMPOSITIONat]/observation_Set_[OBSERVATIONSETat]/details[DETAILSCOMPOSITEat]
+                                }
+                                featureofinterest existence matches {1..1} matches {/.*/}
+                                obsproperty existence matches {1..1} matches {
+                                    ObservedProperty[ObservedPropertyat] occurrences matches {1..1} matches {  -- 
+                                        details existence matches {1..1} matches {
+                                            use_node DETAILS_COMPOSITE[DETAILSCOMPOSITEat] occurrences matches {0..1} /geoDataComposition[GeoDataCOMPOSITIONat]/observation_Set_[OBSERVATIONSETat]/details[DETAILSCOMPOSITEat]
+                                            use_node DETAILS_ELEMENT[DETAILSELEMENTat] occurrences matches {0..1} /geoDataComposition[GeoDataCOMPOSITIONat]/observation_Set_[OBSERVATIONSETat]/details[DETAILSCOMPOSITEat]/element[DETAILSELEMENTat]
+                                        }
+                                    }
+                                }
+                                results_cluster existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                                    use_node Result[Resultat] occurrences matches {0..*} /geoDataComposition[GeoDataCOMPOSITIONat]/observation_Set_[OBSERVATIONSETat]/details[DETAILSCOMPOSITEat]/element[DETAILSELEMENTat]/data_value[TSat]/null[Resultat]
+                                    use_node Results[Resultsat] occurrences matches {0..*} /geoDataComposition[GeoDataCOMPOSITIONat]/observation_Set_[OBSERVATIONSETat]/details[DETAILSCOMPOSITEat]/element[DETAILSELEMENTat]/data_value[TSat]/null[Resultsat]
+                                }
+                                resultTime existence matches {1..1} matches {/.*/}
+                                procedure existence matches {1..1} matches {/.*/}
+                            }
+                        }
+                        relationship existence matches {1..1} matches {
+                            use_node ObservedProperty[ObservedPropertyat] occurrences matches {1..1} /geoDataComposition[GeoDataCOMPOSITIONat]/observation_Set_[OBSERVATIONSETat]/observation[OBSERVATIONat]/obsproperty[ObservedPropertyat]
+                        }
+                    }
+                    use_node ABSTRACT_OBS[ABSTRACTOBSat] occurrences matches {0..*} /geoDataComposition[GeoDataCOMPOSITIONat]/observation_Set_[OBSERVATIONSETat]/observation[ABSTRACTOBSat]
+                    use_node OBSERVATION[OBSERVATIONat] occurrences matches {0..*} /geoDataComposition[GeoDataCOMPOSITIONat]/observation_Set_[OBSERVATIONSETat]/observation[OBSERVATIONat]
+                }
+                details existence matches {1..1} matches {
+                    use_node DETAILS_COMPOSITE[DETAILSCOMPOSITEat] occurrences matches {1..1} /geoDataComposition[GeoDataCOMPOSITIONat]/observation_Set_[OBSERVATIONSETat]/details[DETAILSCOMPOSITEat]
+                }
+            }
+            use_node Geo_Data_Document[GeoDataDocumentat] occurrences matches {0..*} /
+        }
+        details existence matches {1..1} matches {
+            use_node DETAILS_COMPOSITE[DETAILSCOMPOSITEat] occurrences matches {1..1} /geoDataComposition[GeoDataCOMPOSITIONat]/observation_Set_[OBSERVATIONSETat]/details[DETAILSCOMPOSITEat]
+        }
+    }
+
+ontology
+    term_definitions = <
+        ["EN"] = <
+            items = <
+            >
+        >
+    >

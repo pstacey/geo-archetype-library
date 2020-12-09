@@ -1,0 +1,88 @@
+archetype (adl_version=1.4)
+    TPOT-OM-OM_PROCESS.procedure.v1
+
+concept
+    [at0000]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2020-11-25">
+        ["name"] = <"Paul Stacey">
+        ["organisation"] = <"TU Dublin">
+        ["email"] = <"paul.stacey@tudublin.ie">
+    >
+    lifecycle_state = <"Draft">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+
+definition
+    OM_PROCESS[at0000] occurrences matches {1..1} matches {  -- procedure
+        null existence matches {1..1} matches {
+            DETAILS_COMPOSITE[at0003] occurrences matches {0..1} matches {  -- DETAILS_COMPOSITE
+                element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                    DETAILS_ELEMENT[at0004] occurrences matches {0..*} matches {*}  -- definition
+                    DETAILS_ELEMENT[at0005] occurrences matches {0..*} matches {*}  -- tyoeOf
+                    DETAILS_ELEMENT[at0006] occurrences matches {0..*} matches {*}  -- configuration
+                    DETAILS_ELEMENT[at0007] occurrences matches {0..*} matches {*}  -- featuresOfInterest
+                    DETAILS_ELEMENT[at0008] occurrences matches {0..*} matches {*}  -- inputs
+                    DETAILS_ELEMENT[at0009] occurrences matches {0..*} matches {*}  -- outputs
+                    DETAILS_ELEMENT[at0010] occurrences matches {0..*} matches {*}  -- paramters
+                    DETAILS_ELEMENT[at0011] occurrences matches {0..*} matches {*}  -- modes
+                }
+            }
+        }
+    }
+
+ontology
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000"] = <
+                    text = <"procedure">
+                    description = <"procedure">
+                >
+                ["at0003"] = <
+                    text = <"DETAILS_COMPOSITE">
+                    description = <"">
+                >
+                ["at0004"] = <
+                    text = <"definition">
+                    description = <"">
+                >
+                ["at0005"] = <
+                    text = <"tyoeOf">
+                    description = <"">
+                >
+                ["at0006"] = <
+                    text = <"configuration">
+                    description = <"">
+                >
+                ["at0007"] = <
+                    text = <"featuresOfInterest">
+                    description = <"">
+                >
+                ["at0008"] = <
+                    text = <"inputs">
+                    description = <"">
+                >
+                ["at0009"] = <
+                    text = <"outputs">
+                    description = <"">
+                >
+                ["at0010"] = <
+                    text = <"paramters">
+                    description = <"">
+                >
+                ["at0011"] = <
+                    text = <"modes">
+                    description = <"">
+                >
+            >
+        >
+    >

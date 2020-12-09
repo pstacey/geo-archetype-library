@@ -1,0 +1,33 @@
+archetype
+    TPOT-OM-Geo_Data_Document.Geo_Data_Document.v1
+
+description
+    original_author = <
+        ["original_author"] = <"VeraTech">
+    >
+    lifecycle_state = <"DRAFT">
+    details = <
+        ["EN-US"] = <
+            language = <[ISO_639-1::EN-US]>
+            purpose = <"general archetype for mapping to data sources">
+            copyright = <"Copyright(c)2006-2008 VeraTech">
+            use = <"mapping">
+            misuse = <"as a domain concept">
+        >
+    >
+
+mapping
+    map_definitions = <
+        ["/geoDataComposition[GeoDataCOMPOSITIONat]"] = < 
+            items = <
+                ["."] = < "<?xml version='1.0' encoding='UTF-8'?><objectMapping isMixed='false'><Ids></Ids><attributeNamesMap><entry><originalName>Observation_Set </originalName><newName>observation_Set_</newName></entry></attributeNamesMap></objectMapping>" >
+            >
+        >
+        ["/"] = < 
+            items = <
+                ["."] = < "<?xml version='1.0' encoding='UTF-8'?><objectMapping isMixed='false'><Ids></Ids><attributeNamesMap><entry><originalName>GeoDataComposition</originalName><newName>geoDataComposition</newName></entry></attributeNamesMap></objectMapping>" >
+            >
+        >
+    >
+
+
