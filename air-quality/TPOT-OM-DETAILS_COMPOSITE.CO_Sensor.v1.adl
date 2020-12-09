@@ -1,0 +1,39 @@
+archetype (adl_version=1.4)
+    TPOT-OM-DETAILS_COMPOSITE.CO_Sensor.v1
+
+concept
+    [at0000]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2020-11-13">
+        ["name"] = <"Paul Stacey">
+        ["organisation"] = <"TU Dublin">
+        ["email"] = <"paul.stacey@tudublin.ie">
+    >
+    lifecycle_state = <"Draft">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+
+definition
+    DETAILS_COMPOSITE[at0000] occurrences matches {1..1} matches {  -- EnvironmentalMonitoringFacility
+        element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {*}
+    }
+
+ontology
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000"] = <
+                    text = <"CO_Sensor">
+                    description = <"">
+                >
+            >
+        >
+    >

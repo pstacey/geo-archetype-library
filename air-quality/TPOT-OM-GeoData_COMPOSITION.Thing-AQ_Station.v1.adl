@@ -1,0 +1,123 @@
+archetype (adl_version=1.4)
+    TPOT-OM-GeoData_COMPOSITION.Thing-AQ_Station.v1
+specialize
+    TPOT-OM-GeoData_COMPOSITION.Thing.v1
+
+concept
+    [at0000.1]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["name"] = <"unknown">
+        ["organisation"] = <"unknown">
+    >
+    lifecycle_state = <"Draft">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+
+definition
+    GeoData_COMPOSITION[at0000.1] occurrences matches {1..1} matches {  -- Thing - Specialization: AQ_Station
+        details existence matches {1..1} matches {
+            DETAILS_COMPOSITE[at0014.2] occurrences matches {1..1} matches {  -- *DETAILS_COMPOSITE
+                element existence matches {1..1} cardinality matches {1..*; unordered; unique} matches {
+                    DETAILS_COMPOSITE[at0021.3] occurrences matches {0..*} matches {*}  -- Location
+                    DETAILS_ELEMENT[at0018.4] occurrences matches {1..1} matches {*}  -- *name
+                    DETAILS_ELEMENT[at0019.5] occurrences matches {1..1} matches {*}  -- *description
+                    DETAILS_ELEMENT[at0020.7] occurrences matches {0..1} matches {*}  -- *properties
+                }
+            }
+        }
+        observationSet existence matches {0..1} cardinality matches {0..*; unordered; unique} matches {
+            OBSERVATION_SET[at0010.9] occurrences matches {0..*} matches {*}  -- Particles
+            OBSERVATION_SET[at0010.6] occurrences matches {0..*} matches {*}  -- Precipitation
+            OBSERVATION_SET[at0010.8] occurrences matches {0..*} matches {*}  -- Luminosity
+            OBSERVATION_SET[at0010.10] occurrences matches {0..*} matches {*}  -- Noise
+            OBSERVATION_SET[at0010.11] occurrences matches {0..*} matches {*}  -- CO
+            OBSERVATION_SET[at0010.12] occurrences matches {0..*} matches {*}  -- NO2
+            OBSERVATION_SET[at0010.13] occurrences matches {0..*} matches {*}  -- Temperature
+            OBSERVATION_SET[at0010.14] occurrences matches {0..*} matches {*}  -- WindDirection
+            OBSERVATION_SET[at0010.15] occurrences matches {0..*} matches {*}  -- WindSpeed
+        }
+    }
+
+ontology
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000.1"] = <
+                    text = <"Thing - Specialization: AQ_Station">
+                    description = <"http://www.opengis.net/spec/iot_sensing/1.0/req/thing - Specialization: AQ_Station">
+                >
+                ["at0014.2"] = <
+                    text = <"*DETAILS_COMPOSITE">
+                    description = <"*">
+                >
+                ["at0021.3"] = <
+                    text = <"Location">
+                    description = <"The Location entity locates the Thing. Multiple Things MAY be located at the same Location. A Thing MAY not have a Location. A Thing SHOULD have only one Location.
+
+However, in some complex use cases, a Thing MAY have more than one Location representations. In such case, the Thing MAY have more than one Locations. These Locations SHALL have different encodingTypes and the encodingTypes SHOULD be in different spaces (e.g., one encodingType in Geometrical space and one encodingType in Topological space).">
+                >
+                ["at0018.4"] = <
+                    text = <"*name">
+                    description = <"*A property provides a label for Thing entity, commonly a descriptive name.">
+                >
+                ["at0019.5"] = <
+                    text = <"*description">
+                    description = <"*This is a short description of the corresponding Thing entity.">
+                >
+                ["at0020.7"] = <
+                    text = <"*properties">
+                    description = <"*A JSON Object containing user-annotated properties as key-value pairs.">
+                >
+                ["at0010.9"] = <
+                    text = <"Particles">
+                    description = <"">
+                >
+                ["at0010.6"] = <
+                    text = <"Precipitation">
+                    description = <"">
+                >
+                ["at0010.8"] = <
+                    text = <"Luminosity">
+                    description = <"">
+                >
+                ["at0010.10"] = <
+                    text = <"Noise">
+                    description = <"">
+                >
+                ["at0010.11"] = <
+                    text = <"CO">
+                    description = <"">
+                >
+                ["at0010.12"] = <
+                    text = <"NO2">
+                    description = <"">
+                >
+                ["at0010.13"] = <
+                    text = <"Temperature">
+                    description = <"">
+                >
+                ["at0010.14"] = <
+                    text = <"WindDirection">
+                    description = <"">
+                >
+                ["at0010.15"] = <
+                    text = <"WindSpeed">
+                    description = <"">
+                >
+            >
+        >
+    >
+    constraint_definitions = <
+        ["en"] = <
+            items = <
+            >
+        >
+    >
